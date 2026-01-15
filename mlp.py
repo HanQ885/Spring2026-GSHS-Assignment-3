@@ -21,7 +21,9 @@ def get_input_tensors() -> tuple:
 
     # Define the expected output labels (y) as a NumPy array of shape (4, 1)
     # and convert this array into a 2D tensor.
-    # Implement your code here
+    y=np.array([[0],[1],[1],[0]])
+    y_tensor=torch.tensor(y,dtype=torch.float32)
+
 
     return x_tensor, y_tensor
 
@@ -39,10 +41,9 @@ def implement_xor() -> nn.Module:
     X, Y = get_input_tensors()
 
     # Define a 2 layer MLP model for XOR
-    # Implement your code here
-    input_dim = 
-    hidden_dim = 
-    output_dim = 
+    input_dim=2
+    hidden_dim=4
+    output_dim=1
 
     model = nn.Sequential(
         nn.Linear(input_dim, hidden_dim),
@@ -65,8 +66,8 @@ def implement_xor() -> nn.Module:
         optimizer.zero_grad()
 
         # Make predictions 
-        # Implement your code here
-        predictions = 
+        predictions=model(X)
+
 
         # calculate the loss
         loss = criterion(predictions, Y)
